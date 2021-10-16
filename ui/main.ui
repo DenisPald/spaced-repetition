@@ -43,7 +43,7 @@
      <widget class="QFrame" name="left_frame">
       <property name="maximumSize">
        <size>
-        <width>70</width>
+        <width>60</width>
         <height>16777215</height>
        </size>
       </property>
@@ -106,7 +106,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="QPushButton" name="toogle_button">
+           <widget class="QPushButton" name="toggle_button">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -120,6 +120,7 @@
             </property>
             <property name="styleSheet">
              <string notr="true">border: 0px solid;
+background: #4d648d;
 </string>
             </property>
             <property name="text">
@@ -159,13 +160,13 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <property name="spacing">
-           <number>40</number>
+           <number>10</number>
           </property>
           <property name="leftMargin">
            <number>0</number>
           </property>
           <property name="topMargin">
-           <number>40</number>
+           <number>10</number>
           </property>
           <property name="rightMargin">
            <number>0</number>
@@ -174,7 +175,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="QPushButton" name="plus_button">
+           <widget class="QPushButton" name="home_button">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>40</horstretch>
@@ -187,23 +188,31 @@
               <height>70</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: #fff;
-background-color: #181818;
+background-color: none;
 border: 0px solid;
-border-radius: 7px;</string>
+border-radius: 30px;</string>
             </property>
             <property name="text">
              <string/>
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>add.png</normaloff>add.png</iconset>
+              <normaloff>home.png</normaloff>home.png</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>40</width>
-              <height>40</height>
+              <width>30</width>
+              <height>30</height>
              </size>
             </property>
            </widget>
@@ -222,11 +231,19 @@ border-radius: 7px;</string>
               <height>70</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: #fff;
-background-color: #181818;
+background-color: none;
 border: 0px solid;
-border-radius: 7px;</string>
+border-radius: 30px;</string>
             </property>
             <property name="text">
              <string/>
@@ -237,8 +254,8 @@ border-radius: 7px;</string>
             </property>
             <property name="iconSize">
              <size>
-              <width>40</width>
-              <height>40</height>
+              <width>30</width>
+              <height>30</height>
              </size>
             </property>
            </widget>
@@ -257,11 +274,19 @@ border-radius: 7px;</string>
               <height>70</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <family>Arial Black</family>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: #fff;
-background-color: #181818;
+background-color: none;
 border: 0px solid;
-border-radius: 7px;</string>
+border-radius: 30px;</string>
             </property>
             <property name="text">
              <string/>
@@ -272,8 +297,8 @@ border-radius: 7px;</string>
             </property>
             <property name="iconSize">
              <size>
-              <width>40</width>
-              <height>40</height>
+              <width>30</width>
+              <height>30</height>
              </size>
             </property>
            </widget>
@@ -314,10 +339,53 @@ border-radius: 7px;</string>
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
-         <widget class="QWidget" name="page"/>
-         <widget class="QWidget" name="page_2"/>
+         <widget class="QWidget" name="home_page">
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>270</x>
+             <y>170</y>
+             <width>451</width>
+             <height>281</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Домашняя</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="edit_page">
+          <widget class="QLabel" name="label_3">
+           <property name="geometry">
+            <rect>
+             <x>310</x>
+             <y>200</y>
+             <width>521</width>
+             <height>221</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Список</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="settings_page">
+          <widget class="QLabel" name="label_2">
+           <property name="geometry">
+            <rect>
+             <x>270</x>
+             <y>190</y>
+             <width>391</width>
+             <height>231</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>НАСТРОЙКИ</string>
+           </property>
+          </widget>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -331,8 +399,6 @@ border-radius: 7px;</string>
    </property>
   </action>
  </widget>
- <resources>
-  <include location="main.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
