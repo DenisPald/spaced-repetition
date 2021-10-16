@@ -1,0 +1,7 @@
+{
+    "theme": "dark",
+    "Notification":{
+        "time": "0-24",
+        "enabled": true
+    }
+}

@@ -52,55 +52,61 @@
         </mxGraphModel>
     </diagram>
     <diagram id="Jle4tb1fGp4OmTULIMA9" name="UserSettings">
-        <mxGraphModel dx="677" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="967" dy="821" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="B399QU5yFo54d3rUVr5F-0"/>
                 <mxCell id="B399QU5yFo54d3rUVr5F-1" parent="B399QU5yFo54d3rUVr5F-0"/>
                 <mxCell id="B399QU5yFo54d3rUVr5F-2" value="Файл settings.json" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="B399QU5yFo54d3rUVr5F-1" vertex="1">
                     <mxGeometry x="270" y="10" width="250" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="B399QU5yFo54d3rUVr5F-11" value="Notification&#10;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="B399QU5yFo54d3rUVr5F-1" vertex="1">
-                    <mxGeometry x="160" y="150" width="530" height="300" as="geometry"/>
+                <mxCell id="MO97jnFaKK2wIg6iPHgW-5" value="settings" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="B399QU5yFo54d3rUVr5F-1">
+                    <mxGeometry x="90" y="200" width="560" height="352" as="geometry"/>
                 </mxCell>
-                <mxCell id="B399QU5yFo54d3rUVr5F-15" value="* отмечены обязательные параметры" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document" parent="B399QU5yFo54d3rUVr5F-11" vertex="1">
-                    <mxGeometry y="26" width="530" height="54" as="geometry"/>
+                <mxCell id="MO97jnFaKK2wIg6iPHgW-16" value="* отмечены обязательные параметры" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document" vertex="1" parent="MO97jnFaKK2wIg6iPHgW-5">
+                    <mxGeometry y="26" width="560" height="54" as="geometry"/>
                 </mxCell>
-                <mxCell id="4RRsfBIBgSujkeISEIea-2" value="Время для уведомлений. Задается при первом запуске программы" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="B399QU5yFo54d3rUVr5F-11" vertex="1">
-                    <mxGeometry y="80" width="530" height="60" as="geometry"/>
+                <mxCell id="MO97jnFaKK2wIg6iPHgW-22" value="*theme:{dark, light, blue}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="MO97jnFaKK2wIg6iPHgW-5">
+                    <mxGeometry y="80" width="560" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="B399QU5yFo54d3rUVr5F-10" value="*time:{формат час-час}&lt;br&gt;&lt;br&gt;default: 0-24&lt;br&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="B399QU5yFo54d3rUVr5F-11" vertex="1">
-                    <mxGeometry y="140" width="530" height="50" as="geometry"/>
+                <mxCell id="MO97jnFaKK2wIg6iPHgW-15" value="Notification&#10;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="MO97jnFaKK2wIg6iPHgW-5">
+                    <mxGeometry y="106" width="560" height="246" as="geometry"/>
                 </mxCell>
-                <mxCell id="4RRsfBIBgSujkeISEIea-1" value="enabled: false - уведомления отключаются" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="B399QU5yFo54d3rUVr5F-11" vertex="1">
-                    <mxGeometry y="190" width="530" height="60" as="geometry"/>
+                <mxCell id="MO97jnFaKK2wIg6iPHgW-17" value="Время для уведомлений. Задается при первом запуске программы" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="MO97jnFaKK2wIg6iPHgW-15">
+                    <mxGeometry y="26" width="560" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="Rvzhq9zJlDcBRTr9iKc9-0" value="*enabled: bool&lt;br&gt;&lt;br&gt;default: true" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="B399QU5yFo54d3rUVr5F-11" vertex="1">
-                    <mxGeometry y="250" width="530" height="50" as="geometry"/>
+                <mxCell id="MO97jnFaKK2wIg6iPHgW-18" value="*time:{формат час-час}&lt;br&gt;&lt;br&gt;default: 0-24&lt;br&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="MO97jnFaKK2wIg6iPHgW-15">
+                    <mxGeometry y="86" width="560" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="MO97jnFaKK2wIg6iPHgW-19" value="enabled: false - уведомления отключаются" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" vertex="1" parent="MO97jnFaKK2wIg6iPHgW-15">
+                    <mxGeometry y="136" width="560" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="MO97jnFaKK2wIg6iPHgW-20" value="*enabled: bool&lt;br&gt;&lt;br&gt;default: true" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="MO97jnFaKK2wIg6iPHgW-15">
+                    <mxGeometry y="196" width="560" height="50" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram id="srYDoscnhIJq7fZKzDKV" name="AppDesign">
-        <mxGraphModel dx="990" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="677" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-0"/>
                 <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-1" parent="Mfi8ji9Vk9yyfX6pW6PB-0"/>
-                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-7" value="Pages" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="Mfi8ji9Vk9yyfX6pW6PB-1">
+                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-7" value="Pages" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="Mfi8ji9Vk9yyfX6pW6PB-1" vertex="1">
                     <mxGeometry x="250" y="130" width="380" height="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-8" value="Main page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Mfi8ji9Vk9yyfX6pW6PB-7">
+                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-8" value="Main page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Mfi8ji9Vk9yyfX6pW6PB-7" vertex="1">
                     <mxGeometry y="26" width="380" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-9" value="Uset settings page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Mfi8ji9Vk9yyfX6pW6PB-7">
+                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-9" value="Uset settings page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Mfi8ji9Vk9yyfX6pW6PB-7" vertex="1">
                     <mxGeometry y="52" width="380" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-10" value="New card page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Mfi8ji9Vk9yyfX6pW6PB-7">
+                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-10" value="New card page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Mfi8ji9Vk9yyfX6pW6PB-7" vertex="1">
                     <mxGeometry y="78" width="380" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-12" value="Edit card page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Mfi8ji9Vk9yyfX6pW6PB-7">
+                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-12" value="Edit card page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Mfi8ji9Vk9yyfX6pW6PB-7" vertex="1">
                     <mxGeometry y="104" width="380" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-11" value="Hello page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Mfi8ji9Vk9yyfX6pW6PB-7">
+                <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-11" value="Hello page" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Mfi8ji9Vk9yyfX6pW6PB-7" vertex="1">
                     <mxGeometry y="130" width="380" height="50" as="geometry"/>
                 </mxCell>
             </root>
