@@ -84,7 +84,7 @@ class MainWindow(QMainWindow):
         self.dragPos = event.globalPos()
 
     def mouseMoveEvent(self, event):
-        if event.buttons() == Qt.LeftButton and event.pos().y() <= self.LABEL_HEIGHT:
+        if event.buttons() == Qt.LeftButton and event.pos().y() <= self.LABEL_HEIGHT and not self.fullscreen:
             self.move(self.pos() + event.globalPos() - self.dragPos)
             self.dragPos = event.globalPos()
             event.accept()
