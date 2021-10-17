@@ -1,5 +1,5 @@
 from PyQt5 import uic
-from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
+from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, Qt
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow
 
@@ -8,6 +8,8 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('ui/main.ui', self)
+
+        self.setWindowFlags(Qt.WindowFlags(Qt.FramelessWindowHint))
 
         self.toggled = False
         self.toggle_button.clicked.connect(self.open_menu)
