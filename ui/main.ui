@@ -39,7 +39,7 @@
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">background: #2f3136</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_6">
     <property name="spacing">
@@ -184,7 +184,7 @@ border: 0px solid;</string>
     <item>
      <widget class="QWidget" name="app_widget" native="true">
       <property name="styleSheet">
-       <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #282e33, stop:1 #2f3136)</string>
+       <string notr="true"/>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
@@ -551,6 +551,9 @@ border-radius: 30px;</string>
                      <width>0</width>
                      <height>120</height>
                     </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
                    </property>
                    <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
