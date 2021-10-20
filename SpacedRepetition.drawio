@@ -1,11 +1,11 @@
 <mxfile host="65bd71144e">
     <diagram id="HyV8XjtDRZ2jP9U8q9Oj" name="DbPage">
-        <mxGraphModel dx="990" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="677" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="Mu4BiRMCGkyx2JXSXJ-Y-36" value="Card" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;html=1;rounded=0;flipV=0;fillColor=none;shadow=0;" parent="1" vertex="1">
-                    <mxGeometry x="303.5" y="10" width="233" height="120" as="geometry">
+                    <mxGeometry x="303.5" y="10" width="233" height="154" as="geometry">
                         <mxRectangle x="334" y="10" width="60" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
@@ -18,35 +18,8 @@
                 <mxCell id="Mu4BiRMCGkyx2JXSXJ-Y-39" value="Answer" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;align=left;html=1;rounded=0;flipV=0;shadow=0;" parent="Mu4BiRMCGkyx2JXSXJ-Y-36" vertex="1">
                     <mxGeometry y="86" width="233" height="34" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" value="CardStatus" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="240" y="160" width="420" height="280" as="geometry"/>
-                </mxCell>
-                <mxCell id="11" value="" style="group" parent="2" vertex="1" connectable="0">
-                    <mxGeometry y="26" width="420" height="254" as="geometry"/>
-                </mxCell>
-                <mxCell id="3" value="Id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="11" vertex="1">
-                    <mxGeometry width="420" height="28.222222222222218" as="geometry"/>
-                </mxCell>
-                <mxCell id="6" value="NextRepetition" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="11" vertex="1">
-                    <mxGeometry y="28.222222222222218" width="420" height="28.222222222222218" as="geometry"/>
-                </mxCell>
-                <mxCell id="10" value="В формате дд.мм.гггг&lt;br&gt;00.00.0000 - отключение" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="11" vertex="1">
-                    <mxGeometry y="56.44" width="420" height="73.56" as="geometry"/>
-                </mxCell>
-                <mxCell id="hlc29lFWfG54Du3HDadR-10" value="NOfBox" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;align=left;html=1;rounded=0;flipV=0;shadow=0;" parent="11" vertex="1">
-                    <mxGeometry y="130" width="420" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="hlc29lFWfG54Du3HDadR-11" value="&lt;div&gt;NOfBox - номер коробки по системе Лейтнера.&lt;/div&gt;&lt;div&gt;Если 0 то система отключена&lt;br&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;fillColor=none;shadow=0;" parent="11" vertex="1">
-                    <mxGeometry y="180" width="420" height="74" as="geometry"/>
-                </mxCell>
-                <mxCell id="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="Mu4BiRMCGkyx2JXSXJ-Y-37" target="3" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="170" y="200" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="220" y="51"/>
-                            <mxPoint x="220" y="200"/>
-                        </Array>
-                    </mxGeometry>
+                <mxCell id="13" value="NOfBox(0-10, default=0, 10=отключение)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;align=left;html=1;rounded=0;flipV=0;shadow=0;" vertex="1" parent="Mu4BiRMCGkyx2JXSXJ-Y-36">
+                    <mxGeometry y="120" width="233" height="34" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
