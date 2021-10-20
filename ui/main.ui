@@ -283,8 +283,7 @@ border: 0px solid;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">border: 0px solid;
-background: #2b2a33;
-</string>
+background: #2b2a33;</string>
                </property>
                <property name="text">
                 <string/>
@@ -348,7 +347,7 @@ background: #2b2a33;
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>70</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="font">
@@ -361,7 +360,7 @@ background: #2b2a33;
                </property>
                <property name="styleSheet">
                 <string notr="true">color: #fff;
-background-color: none;
+background-color: #2b2a33;
 border: 0px solid;
 border-radius: 30px;</string>
                </property>
@@ -391,7 +390,7 @@ border-radius: 30px;</string>
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>70</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="font">
@@ -404,7 +403,7 @@ border-radius: 30px;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">color: #fff;
-background-color: none;
+background-color: #2b2a33;
 border: 0px solid;
 border-radius: 30px;</string>
                </property>
@@ -434,7 +433,7 @@ border-radius: 30px;</string>
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>70</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="font">
@@ -445,7 +444,7 @@ border-radius: 30px;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">color: #fff;
-background-color: none;
+background-color: #2b2a33;
 border: 0px solid;
 border-radius: 30px;</string>
                </property>
