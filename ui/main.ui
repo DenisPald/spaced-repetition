@@ -34,8 +34,8 @@
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
     <size>
-     <width>1048</width>
-     <height>798</height>
+     <width>0</width>
+     <height>0</height>
     </size>
    </property>
    <property name="styleSheet">

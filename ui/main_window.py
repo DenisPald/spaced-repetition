@@ -10,6 +10,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('ui/main.ui', self)
+        self.initDrag()
 
         self.setWindowFlags(Qt.WindowFlags(Qt.FramelessWindowHint))
 
@@ -31,13 +32,19 @@ class MainWindow(QMainWindow):
         self.fullscreen = False
         self.fullscreen_button.clicked.connect(self.fullscreen_function)
 
-
-
         self.dragPos = QPoint()
 
         self.LABEL_HEIGHT = self.app_name_label.height()
         self.StartWidth = 60
         self.EndWidth = 250
+
+        self.setMouseTracking(True)
+
+    def initDrag(self):
+        self.bottom_drag = False
+        self.right_drag = False
+        self.right_rect = [x for x in range(self.width() - 5, self.width() + 1)]
+        self.bottom_rect = [y for y in range(self.height() - 5, self.height() + 1)]
 
 
     def open_menu(self):
@@ -70,6 +77,7 @@ class MainWindow(QMainWindow):
         self.toggled = not self.toggled
         self.animation.start()
 
+
     def fullscreen_function(self):
         if not self.fullscreen:
             self.showMaximized()
@@ -82,16 +90,41 @@ class MainWindow(QMainWindow):
 
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
+        if event.buttons() == Qt.LeftButton and event.pos().y() in self.bottom_rect:
+            self.bottom_drag = True
+        if event.buttons() == Qt.LeftButton and event.pos().x() in self.right_rect:
+            self.right_drag = True
+
+    def mouseReleaseEvent(self, event):
+        self.right_drag = False
+        self.bottom_drag = False
+        self.setCursor(Qt.ArrowCursor)
 
     def mouseMoveEvent(self, event):
+        if event.pos().y() in self.bottom_rect:
+            self.setCursor(Qt.SizeVerCursor)
+        elif event.pos().x() in self.right_rect:
+            self.setCursor(Qt.SizeHorCursor)
+
         if event.buttons() == Qt.LeftButton and event.pos().y() <= self.LABEL_HEIGHT and not self.fullscreen:
             self.move(self.pos() + event.globalPos() - self.dragPos)
             self.dragPos = event.globalPos()
             event.accept()
 
+        if event.buttons() == Qt.LeftButton and self.bottom_drag:
+            self.resize(self.width(), event.pos().y())
+
+        if event.buttons() == Qt.LeftButton and self.right_drag:
+            self.resize(event.pos().x(), self.height())
+
+
     def mouseDoubleClickEvent(self, event):
         if event.pos().y() <= self.LABEL_HEIGHT:
             self.fullscreen_function()
+
+    def resizeEvent(self, event):
+        self.right_rect = [x for x in range(self.width() - 10, self.width() + 5)]
+        self.bottom_rect = [y for y in range(self.height() - 10, self.height() + 5)]
 
 
     def create_tray(self):
