@@ -5,6 +5,10 @@ from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, Qt, QPoint
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon, QAction, QStyle, qApp, QMenu
 
+from .card import Card
+from .box import Box
+from .box_page import BoxPage
+from app import session, Box as BoxDB, Card as CardDB
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -20,9 +24,9 @@ class MainWindow(QMainWindow):
         self.animation.setDuration(180)
         self.animation.setEasingCurve(QEasingCurve.InOutQuart)
 
-        self.home_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.home_page))
-        self.settings_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.settings_page))
-        self.edit_button.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.edit_page))
+        self.home_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.home_page))
+        self.settings_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.settings_page))
+        self.edit_button.clicked.connect(lambda: self.stacked_widget.setCurrentWidget(self.edit_page))
 
         self.create_tray()
 
@@ -39,6 +43,8 @@ class MainWindow(QMainWindow):
         self.EndWidth = 250
 
         self.setMouseTracking(True)
+
+        self.set_edit_page()
 
     def initDrag(self):
         self.bottom_drag = False
@@ -143,3 +149,14 @@ class MainWindow(QMainWindow):
         tray_menu.addAction(quit_action)
         self.tray_icon.setContextMenu(tray_menu)
         self.tray_icon.show()
+
+
+    def set_edit_page(self):
+        boxes = session.query(BoxDB).all()
+        for cur_box in boxes:
+            cards = session.query(CardDB).filter(CardDB.id_of_box == cur_box.id).all()
+            box_page = BoxPage(cards)
+            self.stacked_widget.addWidget(box_page)
+
+            box = Box(cur_box.name, box_page, self.stacked_widget)
+            self.edit_layout.addWidget(box)

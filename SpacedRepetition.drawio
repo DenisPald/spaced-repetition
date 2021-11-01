@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="HyV8XjtDRZ2jP9U8q9Oj" name="DbPage">
-        <mxGraphModel dx="677" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="740" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -18,14 +18,32 @@
                 <mxCell id="Mu4BiRMCGkyx2JXSXJ-Y-39" value="Answer" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;align=left;html=1;rounded=0;flipV=0;shadow=0;" parent="Mu4BiRMCGkyx2JXSXJ-Y-36" vertex="1">
                     <mxGeometry y="86" width="233" height="34" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="NOfBox(0-10, default=0, 10=отключение)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;align=left;html=1;rounded=0;flipV=0;shadow=0;" vertex="1" parent="Mu4BiRMCGkyx2JXSXJ-Y-36">
+                <mxCell id="13" value="NOfBox(0-10, default=0, 10=отключение)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;align=left;html=1;rounded=0;flipV=0;shadow=0;" parent="Mu4BiRMCGkyx2JXSXJ-Y-36" vertex="1">
                     <mxGeometry y="120" width="233" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Box" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="303.5" y="230" width="240" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="id&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="14" vertex="1">
+                    <mxGeometry y="26" width="240" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="name&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="14" vertex="1">
+                    <mxGeometry y="52" width="240" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="next_repetition(datetime.date)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="14" vertex="1">
+                    <mxGeometry y="78" width="240" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="repeat_time(in days)&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="14" vertex="1">
+                    <mxGeometry y="104" width="240" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="15" target="13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram id="Jle4tb1fGp4OmTULIMA9" name="UserSettings">
-        <mxGraphModel dx="990" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="740" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="B399QU5yFo54d3rUVr5F-0"/>
                 <mxCell id="B399QU5yFo54d3rUVr5F-1" parent="B399QU5yFo54d3rUVr5F-0"/>
@@ -33,16 +51,13 @@
                     <mxGeometry x="270" y="10" width="250" height="110" as="geometry"/>
                 </mxCell>
                 <mxCell id="MO97jnFaKK2wIg6iPHgW-5" value="settings" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="B399QU5yFo54d3rUVr5F-1" vertex="1">
-                    <mxGeometry x="90" y="200" width="560" height="352" as="geometry"/>
+                    <mxGeometry x="90" y="200" width="560" height="326" as="geometry"/>
                 </mxCell>
                 <mxCell id="MO97jnFaKK2wIg6iPHgW-16" value="* отмечены обязательные параметры" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document" parent="MO97jnFaKK2wIg6iPHgW-5" vertex="1">
                     <mxGeometry y="26" width="560" height="54" as="geometry"/>
                 </mxCell>
-                <mxCell id="MO97jnFaKK2wIg6iPHgW-22" value="*theme:{dark, light, blue}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="MO97jnFaKK2wIg6iPHgW-5" vertex="1">
-                    <mxGeometry y="80" width="560" height="26" as="geometry"/>
-                </mxCell>
                 <mxCell id="MO97jnFaKK2wIg6iPHgW-15" value="Notification&#10;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="MO97jnFaKK2wIg6iPHgW-5" vertex="1">
-                    <mxGeometry y="106" width="560" height="246" as="geometry"/>
+                    <mxGeometry y="80" width="560" height="246" as="geometry"/>
                 </mxCell>
                 <mxCell id="MO97jnFaKK2wIg6iPHgW-17" value="Время для уведомлений. Задается при первом запуске программы" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="MO97jnFaKK2wIg6iPHgW-15" vertex="1">
                     <mxGeometry y="26" width="560" height="60" as="geometry"/>
@@ -60,7 +75,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="srYDoscnhIJq7fZKzDKV" name="AppDesign">
-        <mxGraphModel dx="677" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="740" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-0"/>
                 <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-1" parent="Mfi8ji9Vk9yyfX6pW6PB-0"/>

@@ -121,7 +121,13 @@ border: 0px solid;</string>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">border: 0px solid;</string>
+          <string notr="true">QPushButton{
+	border: 0px solid;
+}
+QPushButton:hover{
+	background: #34373d;
+}
+</string>
          </property>
          <property name="text">
           <string/>
@@ -141,7 +147,13 @@ border: 0px solid;</string>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">border: 0px solid;</string>
+          <string notr="true">QPushButton{
+	border: 0px solid;
+}
+QPushButton:hover{
+	background: #34373d;
+}
+</string>
          </property>
          <property name="text">
           <string/>
@@ -161,7 +173,13 @@ border: 0px solid;</string>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">border: 0px solid;</string>
+          <string notr="true">QPushButton{
+	border: 0px solid;
+}
+QPushButton:hover{
+	background: #d71e26;
+}
+</string>
          </property>
          <property name="text">
           <string/>
@@ -497,12 +515,100 @@ border-radius: 30px;</string>
            <number>0</number>
           </property>
           <item>
-           <widget class="QStackedWidget" name="stackedWidget">
+           <widget class="QStackedWidget" name="stacked_widget">
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
-            <widget class="QWidget" name="home_page"/>
-            <widget class="QWidget" name="edit_page"/>
+            <widget class="QWidget" name="home_page">
+             <widget class="QFrame" name="frame_2">
+              <property name="geometry">
+               <rect>
+                <x>450</x>
+                <y>170</y>
+                <width>120</width>
+                <height>80</height>
+               </rect>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="edit_page">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QScrollArea" name="scrollArea">
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>988</width>
+                   <height>768</height>
+                  </rect>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <layout class="QVBoxLayout" name="edit_layout">
+                    <property name="spacing">
+                     <number>100</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
             <widget class="QWidget" name="settings_page">
              <property name="font">
               <font>
@@ -510,6 +616,21 @@ border-radius: 30px;</string>
               </font>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_5">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
                <widget class="QFrame" name="settings">
                 <property name="styleSheet">

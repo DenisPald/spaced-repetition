@@ -1,5 +1,4 @@
 {
-    "theme": "dark",
     "Notification":{
         "time": "0:00-24:00",
         "enabled": true
