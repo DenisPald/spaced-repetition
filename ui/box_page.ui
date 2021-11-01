@@ -80,6 +80,9 @@
        </item>
        <item>
         <layout class="QGridLayout" name="card_layout" rowstretch="0" columnstretch="0">
+         <property name="topMargin">
+          <number>5</number>
+         </property>
          <property name="bottomMargin">
           <number>0</number>
          </property>
@@ -87,7 +90,7 @@
           <number>50</number>
          </property>
          <property name="verticalSpacing">
-          <number>10</number>
+          <number>20</number>
          </property>
         </layout>
        </item>

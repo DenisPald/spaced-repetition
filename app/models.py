@@ -12,9 +12,9 @@ Base = declarative_base(metadata=metadata)
 class Box(Base):
     __tablename__ = 'boxes'
     id = Column(Integer, primary_key=True)
-    name = Column(Text, nullable=False)
-    next_repetition = Column(Date)
-    repeat_time = Column(Integer, unique=True)
+    name = Column(Text, nullable=False, unique=True)
+    next_repetition = Column(Date, nullable=False)
+    repeat_time = Column(Integer, nullable=False, unique=True)
 
     def __init__(self, name: str, repeat_time: int):
         self.name = name
@@ -25,9 +25,9 @@ class Box(Base):
 class Card(Base):
     __tablename__ = 'cards'
     id = Column(Integer, primary_key=True)
-    question = Column(Text)
-    answer = Column(Text)
-    id_of_box = Column(Integer)
+    question = Column(Text, nullable=False)
+    answer = Column(Text, nullable=False)
+    id_of_box = Column(Integer, nullable=False)
 
     def __init__(self, question, answer, box: Box):
         self.question = question

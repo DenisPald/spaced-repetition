@@ -1,3 +1,4 @@
+import datetime
 import sys
 
 from PyQt5 import uic
@@ -8,6 +9,7 @@ from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon, QAction, QStyle, qApp,
 from .card import Card
 from .box import Box
 from .box_page import BoxPage
+from .card_on_main_page import CardOnMainPage
 from app import session, Box as BoxDB, Card as CardDB
 
 class MainWindow(QMainWindow):
@@ -45,6 +47,7 @@ class MainWindow(QMainWindow):
         self.setMouseTracking(True)
 
         self.set_edit_page()
+        self.set_home_page()
 
     def initDrag(self):
         self.bottom_drag = False
@@ -160,3 +163,14 @@ class MainWindow(QMainWindow):
 
             box = Box(cur_box.name, box_page, self.stacked_widget)
             self.edit_layout.addWidget(box)
+
+    def set_home_page(self):
+        for i in reversed(range(self.home_page_layout.count())):
+            self.home_page_layout.itemAt(i).widget().deleteLater()
+
+        cur_box = session.query(BoxDB).filter(BoxDB.next_repetition == datetime.date.today()).first()
+        if cur_box is not None:
+            card_on_main_page = CardOnMainPage(session.query(CardDB).filter(CardDB.id_of_box == cur_box.id).first(), self)
+        else:
+            card_on_main_page = CardOnMainPage(session.query(CardDB).first(), self) #TODO-убрать это, сделать нормальное оповещение что ничего нет
+        self.home_page_layout.addWidget(card_on_main_page)
