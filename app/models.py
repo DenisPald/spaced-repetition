@@ -2,7 +2,6 @@ import datetime
 
 from sqlalchemy import Column, Integer, Text, Date
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.sql.schema import ForeignKey
 
 from app import metadata
 

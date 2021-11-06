@@ -105,7 +105,7 @@
          <item>
           <widget class="QFrame" name="frame_3">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -117,7 +117,7 @@
             <string notr="true">background: #abd7da;</string>
            </property>
            <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
+            <enum>QFrame::NoFrame</enum>
            </property>
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
@@ -139,7 +139,7 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="right_button">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>0</horstretch>
@@ -153,7 +153,7 @@
               </property>
               <property name="styleSheet">
                <string notr="true">border: 0px solid;
-</string>
+background: #00FF00;</string>
               </property>
               <property name="text">
                <string>Верно</string>
@@ -161,7 +161,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_2">
+             <widget class="QPushButton" name="wrong_button">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>0</horstretch>
@@ -175,7 +175,7 @@
               </property>
               <property name="styleSheet">
                <string notr="true">border: 0px solid;
-</string>
+background: #DC143C;</string>
               </property>
               <property name="text">
                <string>Неверно</string>

@@ -8,5 +8,6 @@ metadata = MetaData()
 
 from .models import *
 metadata.create_all(engine)
-Session = sessionmaker(engine)
+session_factory = sessionmaker(engine)
+Session = scoped_session(session_factory)
 session = Session()

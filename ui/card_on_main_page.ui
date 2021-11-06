@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -119,7 +119,7 @@
             <string notr="true">background: #2d313d; color: #fff;</string>
            </property>
            <property name="text">
-            <string>название коробки</string>
+            <string>id коробки</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -164,7 +164,7 @@
            <property name="font">
             <font>
              <family>Segoe UI</family>
-             <pointsize>10</pointsize>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="styleSheet">
@@ -227,7 +227,7 @@
              <property name="font">
               <font>
                <family>Segoe UI</family>
-               <pointsize>9</pointsize>
+               <pointsize>18</pointsize>
               </font>
              </property>
              <property name="styleSheet">
@@ -245,6 +245,12 @@
       </item>
       <item>
        <widget class="QFrame" name="frame_6">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="styleSheet">
          <string notr="true">background: #7dc5c2;</string>
         </property>
