@@ -1,22 +1,21 @@
 import datetime
-import sys
-from threading import Thread
 
 from PyQt5 import uic
 from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, Qt, QPoint
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon, QAction, QStyle, qApp, QMenu
+from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon, QAction, QMenu
+from .main_style import MainUI
 
 from .card import Card
 from .box import Box
 from .box_page import BoxPage
-from .card_on_main_page import CardOnMainPage
+from .card_on_main_page import CardOnMainPage, NoneOnMainPage
 from app import session, Session, Box as BoxDB, Card as CardDB
 
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, MainUI):
     def __init__(self):
         super().__init__()
-        uic.loadUi('ui/main.ui', self)
+        self.setupUi(self)
         self.initDrag()
 
         self.setWindowFlags(Qt.WindowFlags(Qt.FramelessWindowHint))
@@ -156,18 +155,17 @@ class MainWindow(QMainWindow):
 
 
     def set_edit_page(self):
-        cur_session = Session()
         for i in reversed(range(self.edit_layout.count())):
             self.edit_layout.itemAt(i).widget().deleteLater()
-        boxes = cur_session.query(BoxDB).all()
+        boxes = session.query(BoxDB).all()
         for cur_box in boxes:
-            cards = cur_session.query(CardDB).filter(CardDB.id_of_box == cur_box.id).all()
+            cards = session.query(CardDB).filter(CardDB.id_of_box == cur_box.id).all()
             box_page = BoxPage(cards)
             self.stacked_widget.addWidget(box_page)
 
             box = Box(cur_box.name, box_page, self.stacked_widget)
             self.edit_layout.addWidget(box)
-        Session.remove()
+
 
     def set_home_page(self):
         for i in reversed(range(self.home_page_layout.count())):
@@ -177,6 +175,6 @@ class MainWindow(QMainWindow):
         if cur_box is not None:
             card_on_main_page = CardOnMainPage(session.query(CardDB).filter(CardDB.id_of_box == cur_box.id).first(), self)
         else:
-            card_on_main_page = CardOnMainPage(session.query(CardDB).first(), self) #TODO-убрать это, сделать нормальное оповещение что ничего нет
+            card_on_main_page = NoneOnMainPage()
         self.home_page_layout.addWidget(card_on_main_page)
         self.set_edit_page()

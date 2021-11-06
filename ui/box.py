@@ -3,11 +3,12 @@ from PyQt5.QtWidgets import QWidget
 
 from .box_page import BoxPage
 from app import session, Card
+from .box_style import BoxUI
 
-class Box(QWidget):
+class Box(QWidget, BoxUI):
     def __init__(self, name: str, box_page: BoxPage, stacked_widget):
         super().__init__()
-        uic.loadUi("ui/box.ui", self)
+        self.setupUi(self)
         self.name_label.setText(name)
         self.box_page = box_page
         self.stacked_widget = stacked_widget

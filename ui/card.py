@@ -2,10 +2,12 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QIcon
 
-class Card(QWidget):
+from .card_style import CardUI
+
+class Card(QWidget, CardUI):
     def __init__(self, question: str, answer: str):
         super().__init__()
-        uic.loadUi("ui/card.ui", self)
+        self.setupUi(self)
         self.visible = False
         self.question_label.setText(question)
         self.answer = answer

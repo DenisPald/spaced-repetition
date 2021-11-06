@@ -5,10 +5,14 @@ from PyQt5.QtWidgets import QWidget
 from app import Card
 from app import Box
 
-class RightOrNot(QWidget):
+from .card_on_main_page_style import CardOnMainPageUi
+from .none_on_main_page_style import NoneOnMainPageUI
+from .right_or_not_style import RightOrNotUI
+
+class RightOrNot(QWidget, RightOrNotUI):
     def __init__(self, card: Card, parent):
         super().__init__()
-        uic.loadUi('ui/right_or_not.ui', self)
+        self.setupUi(self)
         self.parent = parent
         self.card = card
         self.right_button.clicked.connect(self.right)
@@ -35,13 +39,22 @@ class RightOrNot(QWidget):
 
 
     def wrong(self):
-        pass
+        question = self.card.question
+        answer = self.card.answer
+
+        first_box = session.query(Box).order_by(Box.repeat_time).first()
+        transferred = Card(question, answer, first_box)
+        session.add(transferred)
+        session.query(Card).filter(Card.id == self.card.id).delete()
+        session.commit()
+
+        self.parent.set_home_page()
 
 
-class CardOnMainPage(QWidget):
+class CardOnMainPage(QWidget, CardOnMainPageUi):
     def __init__(self, card: Card, parent):
         super().__init__()
-        uic.loadUi('ui/card_on_main_page.ui', self)
+        self.setupUi(self)
         self.visible = False
         self.card = card
         self.parent = parent
@@ -63,3 +76,9 @@ class CardOnMainPage(QWidget):
         session.query(Card).filter(Card.id == self.card.id).delete()
         session.commit()
         self.parent.set_home_page()
+
+
+class NoneOnMainPage(QWidget, NoneOnMainPageUI):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
