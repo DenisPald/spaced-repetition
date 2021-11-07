@@ -24,6 +24,10 @@ class NoneOnMainPageUI(object):
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.label = QtWidgets.QLabel(Form)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(18)
+        self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
@@ -35,4 +39,4 @@ class NoneOnMainPageUI(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "На сегодня все!"))
+        self.label.setText(_translate("Form", "На сегодня карточки кончились"))

@@ -4,13 +4,14 @@ from PyQt5 import uic
 from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, Qt, QPoint
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon, QAction, QMenu
-from .main_style import MainUI
+
 
 from .card import Card
 from .box import Box
 from .box_page import BoxPage
 from .card_on_main_page import CardOnMainPage, NoneOnMainPage
 from app import session, Session, Box as BoxDB, Card as CardDB
+from .main_style import MainUI
 
 class MainWindow(QMainWindow, MainUI):
     def __init__(self):

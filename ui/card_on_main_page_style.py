@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class CardOnMainPageUi(object):
+class CardOnMainPageUI(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(400, 700)
@@ -27,6 +27,7 @@ class CardOnMainPageUi(object):
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(Form)
+        self.frame.setStyleSheet("")
         self.frame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setLineWidth(1)
@@ -41,6 +42,7 @@ class CardOnMainPageUi(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_2.sizePolicy().hasHeightForWidth())
         self.frame_2.setSizePolicy(sizePolicy)
+        self.frame_2.setStyleSheet("border-radius: 15px 15px 0px 0px;")
         self.frame_2.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -119,7 +121,8 @@ class CardOnMainPageUi(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
         self.frame_6.setSizePolicy(sizePolicy)
-        self.frame_6.setStyleSheet("background: #7dc5c2;")
+        self.frame_6.setStyleSheet("background: #7dc5c2;\n"
+"border-radius: 0px 0px 15px 15px;")
         self.frame_6.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_6.setObjectName("frame_6")

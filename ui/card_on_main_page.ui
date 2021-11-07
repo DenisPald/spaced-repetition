@@ -46,6 +46,9 @@
    </property>
    <item>
     <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -78,6 +81,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 15px 15px 0px 0px;</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
@@ -252,7 +258,8 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true">background: #7dc5c2;</string>
+         <string notr="true">background: #7dc5c2;
+border-radius: 0px 0px 15px 15px;</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>

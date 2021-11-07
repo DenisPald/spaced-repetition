@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QWidget
 from app import Card
 from app import Box
 
-from .card_on_main_page_style import CardOnMainPageUi
+from .card_on_main_page_style import CardOnMainPageUI
 from .none_on_main_page_style import NoneOnMainPageUI
 from .right_or_not_style import RightOrNotUI
 
@@ -51,7 +51,7 @@ class RightOrNot(QWidget, RightOrNotUI):
         self.parent.set_home_page()
 
 
-class CardOnMainPage(QWidget, CardOnMainPageUi):
+class CardOnMainPage(QWidget, CardOnMainPageUI):
     def __init__(self, card: Card, parent):
         super().__init__()
         self.setupUi(self)
