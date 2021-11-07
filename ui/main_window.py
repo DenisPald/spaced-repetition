@@ -35,7 +35,6 @@ class MainWindow(QMainWindow, MainUI):
         self.new_card_button.clicked.connect(
             lambda: self.stacked_widget.setCurrentWidget(self.new_card_page))
 
-        self.create_tray()
 
         self.close_button.clicked.connect(lambda: exit())
         self.tray_button.clicked.connect(lambda: self.hide())
@@ -51,8 +50,11 @@ class MainWindow(QMainWindow, MainUI):
 
         self.setMouseTracking(True)
 
+        self.create_tray()
         self.set_home_page()
         self.stacked_widget.setCurrentWidget(self.home_page)
+
+        self.create_button.clicked.connect(self.new_card)
 
     def initDrag(self):
         self.bottom_drag = False
@@ -198,3 +200,14 @@ class MainWindow(QMainWindow, MainUI):
         else:
             card_on_main_page = NoneOnMainPage()
         self.home_page_layout.addWidget(card_on_main_page)
+
+    def new_card(self):
+        box = session.query(BoxDB.repeat_time == self.interval_spin_box.value()).first()
+        if not box[0]:
+            box = BoxDB(f'раз в {self.interval_spin_box.value()} дней', self.interval_spin_box.value())
+            session.add(box)
+            session.commit()
+        card = CardDB(self.question_text.toPlainText(), self.answer_text.toPlainText(), box)
+        session.add(card)
+        session.commit()
+        self.switch_edit_page()
