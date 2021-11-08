@@ -1,8 +1,9 @@
-from app import session, Box, Card
+from app import Box, Card, session
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget
 
 from .new_card_style import NewCardUI
+
 
 class NewCard(QWidget, NewCardUI):
     def __init__(self, parent):

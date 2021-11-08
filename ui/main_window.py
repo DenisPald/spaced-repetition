@@ -1,18 +1,20 @@
 import datetime
-
-from PyQt5 import uic
-from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, Qt, QPoint, QTimer
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon, QAction, QMenu
 import json
 
-from .card import Card
+from app import Box as BoxDB
+from app import Card as CardDB
+from app import session
+from PyQt5.QtCore import QEasingCurve, QPoint, QPropertyAnimation, Qt, QTimer
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QAction, QMainWindow, QMenu, QSystemTrayIcon
+
 from .box import Box
 from .box_page import BoxPage
-from .new_card import NewCard
+from .card import Card
 from .card_on_main_page import CardOnMainPage, NoneOnMainPage
-from app import session, Box as BoxDB, Card as CardDB
 from .main_style import MainUI
+from .new_card import NewCard
+from .notification_widget import NotificationWidget
 
 
 class MainWindow(QMainWindow, MainUI):
@@ -44,9 +46,13 @@ class MainWindow(QMainWindow, MainUI):
         self.StartWidth = 60
         self.EndWidth = 250
 
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.update_db)
-        self.timer.start(3600000) # Каждый час бд будет проверять не устрели ли даты
+        self.timer_for_db = QTimer(self)
+        self.timer_for_notification = QTimer(self)
+        self.timer_for_db.timeout.connect(self.update_db)
+        self.timer_for_notification.timeout.connect(self.check_notification)
+        self.timer_for_db.start(3600000)
+        self.timer_for_notification.start(60000)
+
         self.setMouseTracking(True)
 
         self.update_db()
@@ -176,8 +182,10 @@ class MainWindow(QMainWindow, MainUI):
         self.tray_icon.show()
 
     def set_edit_page(self):
+        # Удаление предыдущего edit layout
         for i in reversed(range(self.edit_layout.count())):
             self.edit_layout.itemAt(i).widget().deleteLater()
+
         boxes = session.query(BoxDB).all()
         for cur_box in boxes:
             cards = session.query(CardDB).filter(
@@ -189,12 +197,25 @@ class MainWindow(QMainWindow, MainUI):
             self.edit_layout.addWidget(box)
 
     def update_db(self):
+        # Проверяем не устарели ли даты в коробках. Если дата следующего повтора оказалась в прошлом она обновляется
         boxes = session.query(BoxDB).all()
         for cur_box in boxes:
             if cur_box.next_repetition < datetime.date.today():
                 cur_box.next_repetition += datetime.timedelta(
                     days=cur_box.repeat_time + 1)
                 session.commit()
+
+    def check_notification(self):
+        # Проверяем не время ли напомнить о карточках
+        boxes = session.query(BoxDB).all()
+        with open('settings.json') as f:
+            time = datetime.datetime.now().time().strftime('%H:%M')
+            settings = json.load(f)
+            print(settings['enabled'])
+            for cur_box in boxes:
+                if cur_box.next_repetition == datetime.date.today() and settings['time'] == time and settings['enabled']:
+                    self.flash()
+                    break
 
     def set_home_page(self):
         for i in reversed(range(self.home_page_layout.count())):
@@ -244,3 +265,8 @@ class MainWindow(QMainWindow, MainUI):
         with open('settings.json', 'w') as w:
             json.dump(self.settings, w, ensure_ascii=False, indent=4)
         self.open_home_page()
+
+
+    def flash(self):
+        self.notification = NotificationWidget()
+        self.notification.show()

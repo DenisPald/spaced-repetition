@@ -1,9 +1,6 @@
-from app import session
+from app import Box, Card, session
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget
-
-from app import Card
-from app import Box
 
 from .card_on_main_page_style import CardOnMainPageUI
 from .none_on_main_page_style import NoneOnMainPageUI
