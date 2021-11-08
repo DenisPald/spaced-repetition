@@ -1,7 +1,7 @@
 import datetime
 
 from PyQt5 import uic
-from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, Qt, QPoint
+from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, Qt, QPoint, QTimer
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon, QAction, QMenu
 import json
@@ -32,12 +32,9 @@ class MainWindow(QMainWindow, MainUI):
         self.home_button.clicked.connect(self.open_home_page)
         self.settings_button.clicked.connect(self.open_settings_page)
         self.edit_button.clicked.connect(self.switch_edit_page)
-        self.new_card_button.clicked.connect(
-            lambda: self.stacked_widget.setCurrentWidget(self.new_card_page))
-
         self.close_button.clicked.connect(lambda: exit())
         self.tray_button.clicked.connect(lambda: self.hide())
-
+        self.new_card_button.clicked.connect(self.set_new_card_page)
         self.fullscreen = False
         self.fullscreen_button.clicked.connect(self.fullscreen_function)
 
@@ -47,14 +44,17 @@ class MainWindow(QMainWindow, MainUI):
         self.StartWidth = 60
         self.EndWidth = 250
 
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.update_db)
+        self.timer.start(3600000) # Каждый час бд будет проверять не устрели ли даты
         self.setMouseTracking(True)
 
+        self.update_db()
         self.create_tray()
         self.set_edit_page()
         self.set_home_page()
         self.stacked_widget.setCurrentWidget(self.home_page)
 
-        self.new_card_button.clicked.connect(self.set_new_card_page)
 
     def initDrag(self):
         self.bottom_drag = False
@@ -180,11 +180,6 @@ class MainWindow(QMainWindow, MainUI):
             self.edit_layout.itemAt(i).widget().deleteLater()
         boxes = session.query(BoxDB).all()
         for cur_box in boxes:
-            if cur_box.next_repetition < datetime.date.today():
-                cur_box.next_repetition += datetime.timedelta(
-                    days=cur_box.repeat_time + 1)
-                session.commit()
-
             cards = session.query(CardDB).filter(
                 CardDB.id_of_box == cur_box.id).all()
             box_page = BoxPage(cards, self)
@@ -192,6 +187,14 @@ class MainWindow(QMainWindow, MainUI):
 
             box = Box(cur_box.name, box_page, self.stacked_widget)
             self.edit_layout.addWidget(box)
+
+    def update_db(self):
+        boxes = session.query(BoxDB).all()
+        for cur_box in boxes:
+            if cur_box.next_repetition < datetime.date.today():
+                cur_box.next_repetition += datetime.timedelta(
+                    days=cur_box.repeat_time + 1)
+                session.commit()
 
     def set_home_page(self):
         for i in reversed(range(self.home_page_layout.count())):
