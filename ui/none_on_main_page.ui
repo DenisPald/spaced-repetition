@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>442</width>
     <height>300</height>
    </rect>
   </property>
@@ -44,6 +44,9 @@
          <family>Segoe UI</family>
          <pointsize>18</pointsize>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: #2f3136; color:#DBDBDB;</string>
        </property>
        <property name="text">
         <string>На сегодня карточки кончились</string>

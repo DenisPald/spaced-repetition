@@ -51,8 +51,8 @@ class MainWindow(QMainWindow, MainUI):
         self.setMouseTracking(True)
 
         self.create_tray()
-        self.set_home_page()
         self.set_edit_page()
+        self.set_home_page()
         self.stacked_widget.setCurrentWidget(self.home_page)
 
         self.new_card_button.clicked.connect(self.set_new_card_page)

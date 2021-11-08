@@ -95,6 +95,9 @@
              <pointsize>20</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: #DCDCDC;</string>
+           </property>
           </widget>
          </item>
          <item>
@@ -154,6 +157,9 @@
              <pointsize>20</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color: #DCDCDC;</string>
+           </property>
           </widget>
          </item>
          <item>
@@ -212,6 +218,9 @@
              <family>Segoe UI</family>
              <pointsize>20</pointsize>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: #DCDCDC;</string>
            </property>
            <property name="buttonSymbols">
             <enum>QAbstractSpinBox::UpDownArrows</enum>

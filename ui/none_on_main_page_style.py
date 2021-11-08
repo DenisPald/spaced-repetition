@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class NoneOnMainPageUI(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(400, 300)
+        Form.resize(442, 300)
         Form.setAutoFillBackground(True)
         Form.setStyleSheet("background: none;")
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
@@ -28,6 +28,7 @@ class NoneOnMainPageUI(object):
         font.setFamily("Segoe UI")
         font.setPointSize(18)
         self.label.setFont(font)
+        self.label.setStyleSheet("background: #2f3136; color:#DBDBDB;")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
