@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="HyV8XjtDRZ2jP9U8q9Oj" name="DbPage">
-        <mxGraphModel dx="740" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="740" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -42,40 +42,8 @@
             </root>
         </mxGraphModel>
     </diagram>
-    <diagram id="Jle4tb1fGp4OmTULIMA9" name="UserSettings">
-        <mxGraphModel dx="740" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-            <root>
-                <mxCell id="B399QU5yFo54d3rUVr5F-0"/>
-                <mxCell id="B399QU5yFo54d3rUVr5F-1" parent="B399QU5yFo54d3rUVr5F-0"/>
-                <mxCell id="B399QU5yFo54d3rUVr5F-2" value="Файл settings.json" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="B399QU5yFo54d3rUVr5F-1" vertex="1">
-                    <mxGeometry x="270" y="10" width="250" height="110" as="geometry"/>
-                </mxCell>
-                <mxCell id="MO97jnFaKK2wIg6iPHgW-5" value="settings" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="B399QU5yFo54d3rUVr5F-1" vertex="1">
-                    <mxGeometry x="90" y="200" width="560" height="326" as="geometry"/>
-                </mxCell>
-                <mxCell id="MO97jnFaKK2wIg6iPHgW-16" value="* отмечены обязательные параметры" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document" parent="MO97jnFaKK2wIg6iPHgW-5" vertex="1">
-                    <mxGeometry y="26" width="560" height="54" as="geometry"/>
-                </mxCell>
-                <mxCell id="MO97jnFaKK2wIg6iPHgW-15" value="Notification&#10;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="MO97jnFaKK2wIg6iPHgW-5" vertex="1">
-                    <mxGeometry y="80" width="560" height="246" as="geometry"/>
-                </mxCell>
-                <mxCell id="MO97jnFaKK2wIg6iPHgW-17" value="Время для уведомлений. Задается при первом запуске программы" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="MO97jnFaKK2wIg6iPHgW-15" vertex="1">
-                    <mxGeometry y="26" width="560" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="MO97jnFaKK2wIg6iPHgW-18" value="*time:{формат чч:мм-чч:мм}&lt;br&gt;&lt;br&gt;default: 00:00-24:00" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="MO97jnFaKK2wIg6iPHgW-15" vertex="1">
-                    <mxGeometry y="86" width="560" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="MO97jnFaKK2wIg6iPHgW-19" value="enabled: false - уведомления отключаются" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="MO97jnFaKK2wIg6iPHgW-15" vertex="1">
-                    <mxGeometry y="136" width="560" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="MO97jnFaKK2wIg6iPHgW-20" value="*enabled: bool&lt;br&gt;&lt;br&gt;default: true" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="MO97jnFaKK2wIg6iPHgW-15" vertex="1">
-                    <mxGeometry y="196" width="560" height="50" as="geometry"/>
-                </mxCell>
-            </root>
-        </mxGraphModel>
-    </diagram>
     <diagram id="srYDoscnhIJq7fZKzDKV" name="AppDesign">
-        <mxGraphModel dx="740" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="740" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-0"/>
                 <mxCell id="Mfi8ji9Vk9yyfX6pW6PB-1" parent="Mfi8ji9Vk9yyfX6pW6PB-0"/>

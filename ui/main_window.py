@@ -4,6 +4,7 @@ from PyQt5 import uic
 from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, Qt, QPoint
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon, QAction, QMenu
+import json
 
 from .card import Card
 from .box import Box
@@ -29,12 +30,10 @@ class MainWindow(QMainWindow, MainUI):
         self.animation.setEasingCurve(QEasingCurve.InOutQuart)
 
         self.home_button.clicked.connect(self.open_home_page)
-        self.settings_button.clicked.connect(
-            lambda: self.stacked_widget.setCurrentWidget(self.settings_page))
+        self.settings_button.clicked.connect(self.open_settings_page)
         self.edit_button.clicked.connect(self.switch_edit_page)
         self.new_card_button.clicked.connect(
             lambda: self.stacked_widget.setCurrentWidget(self.new_card_page))
-
 
         self.close_button.clicked.connect(lambda: exit())
         self.tray_button.clicked.connect(lambda: self.hide())
@@ -56,7 +55,6 @@ class MainWindow(QMainWindow, MainUI):
         self.stacked_widget.setCurrentWidget(self.home_page)
 
         self.new_card_button.clicked.connect(self.set_new_card_page)
-
 
     def initDrag(self):
         self.bottom_drag = False
@@ -130,7 +128,8 @@ class MainWindow(QMainWindow, MainUI):
         elif event.pos().x() in self.right_rect:
             self.setCursor(Qt.SizeHorCursor)
 
-        if event.buttons() == Qt.LeftButton and event.pos().y() <= self.LABEL_HEIGHT and not self.fullscreen:
+        if event.buttons() == Qt.LeftButton and event.pos().y(
+        ) <= self.LABEL_HEIGHT and not self.fullscreen:
             self.move(self.pos() + event.globalPos() - self.dragPos)
             self.dragPos = event.globalPos()
             event.accept()
@@ -182,7 +181,8 @@ class MainWindow(QMainWindow, MainUI):
         boxes = session.query(BoxDB).all()
         for cur_box in boxes:
             if cur_box.next_repetition < datetime.date.today():
-                cur_box.next_repetition += datetime.timedelta(days=cur_box.repeat_time + 1)
+                cur_box.next_repetition += datetime.timedelta(
+                    days=cur_box.repeat_time + 1)
                 session.commit()
 
             cards = session.query(CardDB).filter(
@@ -215,7 +215,29 @@ class MainWindow(QMainWindow, MainUI):
         self.new_card_layout.addWidget(self.new_card_widget)
         self.stacked_widget.setCurrentWidget(self.new_card_page)
 
-
     def open_home_page(self):
         self.set_home_page()
         self.stacked_widget.setCurrentWidget(self.home_page)
+
+    def set_settings_page(self):
+        with open('settings.json') as f:
+            self.settings = json.load(f)
+
+        self.notification_button.setChecked(self.settings['enabled'])
+        time = self.settings['time'].split(':')
+        self.time_settings.setTime(
+            datetime.time(hour=int(time[0]), minute=int(time[1])))
+
+        self.save_button.clicked.connect(lambda: self.change_json(
+            self.notification_button.isChecked(), self.time_settings.time()))
+
+    def open_settings_page(self):
+        self.set_settings_page()
+        self.stacked_widget.setCurrentWidget(self.settings_page)
+
+    def change_json(self, enabled, time):
+        self.settings['enabled'] = enabled
+        self.settings['time'] = f'{time.hour()}:{time.minute()}'
+        with open('settings.json', 'w') as w:
+            json.dump(self.settings, w, ensure_ascii=False, indent=4)
+        self.open_home_page()

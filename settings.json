@@ -1,6 +1,4 @@
 {
-    "Notification":{
-        "time": "0:00-24:00",
-        "enabled": true
-    }
+    "time": "5:22",
+    "enabled": true
 }
