@@ -32,3 +32,12 @@ class Card(Base):
         self.question = question
         self.answer = answer
         self.id_of_box = box.id
+
+    def update_box(self, box: Box):
+        self.id_of_box = box.id
+
+    def update_answer(self, answer: str):
+        self.answer = answer
+
+    def update_question(self, question: str):
+        self.question = question

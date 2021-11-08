@@ -8,8 +8,9 @@ from PyQt5.QtWidgets import QMainWindow, QSystemTrayIcon, QAction, QMenu
 from .card import Card
 from .box import Box
 from .box_page import BoxPage
+from .new_card import NewCard
 from .card_on_main_page import CardOnMainPage, NoneOnMainPage
-from app import session, Session, Box as BoxDB, Card as CardDB
+from app import session, Box as BoxDB, Card as CardDB
 from .main_style import MainUI
 
 
@@ -27,8 +28,7 @@ class MainWindow(QMainWindow, MainUI):
         self.animation.setDuration(180)
         self.animation.setEasingCurve(QEasingCurve.InOutQuart)
 
-        self.home_button.clicked.connect(
-            lambda: self.stacked_widget.setCurrentWidget(self.home_page))
+        self.home_button.clicked.connect(self.open_home_page)
         self.settings_button.clicked.connect(
             lambda: self.stacked_widget.setCurrentWidget(self.settings_page))
         self.edit_button.clicked.connect(self.switch_edit_page)
@@ -52,9 +52,11 @@ class MainWindow(QMainWindow, MainUI):
 
         self.create_tray()
         self.set_home_page()
+        self.set_edit_page()
         self.stacked_widget.setCurrentWidget(self.home_page)
 
-        self.create_button.clicked.connect(self.new_card)
+        self.new_card_button.clicked.connect(self.set_new_card_page)
+
 
     def initDrag(self):
         self.bottom_drag = False
@@ -179,9 +181,13 @@ class MainWindow(QMainWindow, MainUI):
             self.edit_layout.itemAt(i).widget().deleteLater()
         boxes = session.query(BoxDB).all()
         for cur_box in boxes:
+            if cur_box.next_repetition < datetime.date.today():
+                cur_box.next_repetition += datetime.timedelta(days=cur_box.repeat_time + 1)
+                session.commit()
+
             cards = session.query(CardDB).filter(
                 CardDB.id_of_box == cur_box.id).all()
-            box_page = BoxPage(cards)
+            box_page = BoxPage(cards, self)
             self.stacked_widget.addWidget(box_page)
 
             box = Box(cur_box.name, box_page, self.stacked_widget)
@@ -201,13 +207,15 @@ class MainWindow(QMainWindow, MainUI):
             card_on_main_page = NoneOnMainPage()
         self.home_page_layout.addWidget(card_on_main_page)
 
-    def new_card(self):
-        box = session.query(BoxDB.repeat_time == self.interval_spin_box.value()).first()
-        if not box[0]:
-            box = BoxDB(f'раз в {self.interval_spin_box.value()} дней', self.interval_spin_box.value())
-            session.add(box)
-            session.commit()
-        card = CardDB(self.question_text.toPlainText(), self.answer_text.toPlainText(), box)
-        session.add(card)
-        session.commit()
-        self.switch_edit_page()
+    def set_new_card_page(self):
+        for i in reversed(range(self.new_card_layout.count())):
+            self.new_card_layout.itemAt(i).widget().deleteLater()
+
+        self.new_card_widget = NewCard(self)
+        self.new_card_layout.addWidget(self.new_card_widget)
+        self.stacked_widget.setCurrentWidget(self.new_card_page)
+
+
+    def open_home_page(self):
+        self.set_home_page()
+        self.stacked_widget.setCurrentWidget(self.home_page)

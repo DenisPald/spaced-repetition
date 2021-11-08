@@ -60,21 +60,6 @@ border-radius: 15px;</string>
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>10</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
       <item>
        <widget class="QFrame" name="frame_2">
         <property name="frameShape">
@@ -104,6 +89,7 @@ border-radius: 15px;</string>
            <property name="font">
             <font>
              <family>Segoe UI</family>
+             <pointsize>10</pointsize>
             </font>
            </property>
            <property name="text">
@@ -152,7 +138,7 @@ border-radius: 15px;</string>
            <property name="font">
             <font>
              <family>Segoe UI</family>
-             <pointsize>9</pointsize>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="text">
@@ -170,6 +156,55 @@ border-radius: 15px;</string>
            </property>
            <property name="autoRepeat">
             <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_4">
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="delete_button">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>delete.png</normaloff>delete.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="edit_button">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>edit.png</normaloff>edit.png</iconset>
            </property>
           </widget>
          </item>
