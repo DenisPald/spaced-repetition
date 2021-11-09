@@ -15,7 +15,7 @@ class NewCard(QWidget, NewCardUI):
     def find_a_box(self):
         box: Box = session.query(Box).filter(Box.repeat_time == self.interval_spin_box.value()).first()
         if not box:
-            box = Box('Раз в ' + str(self.interval_spin_box.value()) + ' дней', self.interval_spin_box.value())
+            box = Box(self.interval_spin_box.value())
             session.add(box)
             session.commit()
 

@@ -1,6 +1,7 @@
 import datetime
+from typing import Union
 
-from sqlalchemy import Column, Integer, Text, Date
+from sqlalchemy import Column, Date, Integer, Text
 from sqlalchemy.ext.declarative import declarative_base
 
 from app import metadata
@@ -15,8 +16,11 @@ class Box(Base):
     next_repetition = Column(Date, nullable=False)
     repeat_time = Column(Integer, nullable=False, unique=True)
 
-    def __init__(self, name: str, repeat_time: int):
-        self.name = name
+    def __init__(self, repeat_time: int, custom_name: Union[str, None] = None):
+        if custom_name is not None:
+            self.name = custom_name
+        else:
+            self.name = f'Раз в {repeat_time} дней'
         self.next_repetition = datetime.date.today() + datetime.timedelta(days=repeat_time)
         self.repeat_time = repeat_time
 

@@ -17,9 +17,6 @@ class RightOrNot(QWidget, RightOrNotUI):
         self.wrong_button.clicked.connect(self.wrong)
 
     def right(self):
-        question = self.card.question
-        answer = self.card.answer
-
         current_box = session.query(Box).filter(
             Box.id == self.card.id_of_box).first()
         list_of_possible_boxes = session.query(Box).filter(
@@ -29,10 +26,13 @@ class RightOrNot(QWidget, RightOrNotUI):
             for possible_box in list_of_possible_boxes[1:]:
                 if possible_box.repeat_time < min_repeat_time_box.repeat_time:
                     min_repeat_time_box = possible_box
-            transferred = Card(question, answer, min_repeat_time_box)
-            session.add(transferred)
+                self.card.update_box(min_repeat_time_box)
+        else:
+            box = Box((current_box.repeat_time * 2) + 1)
+            session.add(box)
+            session.commit()
+            self.card.update_box(box)
 
-        session.query(Card).filter(Card.id == self.card.id).delete()
         session.commit()
 
         self.parent.set_home_page()

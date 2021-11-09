@@ -224,9 +224,11 @@ class MainWindow(QMainWindow, MainUI):
         cur_box = session.query(BoxDB).filter(
             BoxDB.next_repetition == datetime.date.today()).first()
         if cur_box is not None:
-            card_on_main_page = CardOnMainPage(
-                session.query(CardDB).filter(
-                    CardDB.id_of_box == cur_box.id).first(), self)
+            cur_card = session.query(CardDB).filter(CardDB.id_of_box == cur_box.id).first()
+            if cur_card:
+                card_on_main_page = CardOnMainPage(cur_card, self)
+            else:
+                card_on_main_page = NoneOnMainPage()
         else:
             card_on_main_page = NoneOnMainPage()
         self.home_page_layout.addWidget(card_on_main_page)
