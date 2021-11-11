@@ -26,7 +26,7 @@ class RightOrNot(QWidget, RightOrNotUI):
             for possible_box in list_of_possible_boxes[1:]:
                 if possible_box.repeat_time < min_repeat_time_box.repeat_time:
                     min_repeat_time_box = possible_box
-                self.card.update_box(min_repeat_time_box)
+            self.card.update_box(min_repeat_time_box)
         else:
             box = Box((current_box.repeat_time * 2) + 1)
             session.add(box)

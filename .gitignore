@@ -3,4 +3,4 @@ __pycache__
 .vscode
 .qt_for_python
 output
-.db
+*.db
