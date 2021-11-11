@@ -20,9 +20,29 @@ class Box(Base):
         if custom_name is not None:
             self.name = custom_name
         else:
-            self.name = f'Раз в {repeat_time} дней'
+            output = self._conjugate_name(repeat_time)
+            self.name = f'Раз в {repeat_time} {output}'
         self.next_repetition = datetime.date.today() + datetime.timedelta(days=repeat_time)
         self.repeat_time = repeat_time
+
+    def _conjugate_name(self, repeat_time):
+        n = repeat_time % 100
+        if 5 <= n <= 20:
+            return 'дней'
+        n %= 10
+        if n == 1:
+            return 'день'
+        if 2 <= n <= 4:
+            return 'дня'
+
+        return 'дней'
+
+    def update_repetition(self):
+        if self.repeat_time != 0:
+            self.next_repetition += self.repeat_time
+        else:
+            self.next_repetition += 1
+
 
 
 class Card(Base):

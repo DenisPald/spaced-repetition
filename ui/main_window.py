@@ -61,7 +61,6 @@ class MainWindow(QMainWindow, MainUI):
         self.set_home_page()
         self.stacked_widget.setCurrentWidget(self.home_page)
 
-
     def initDrag(self):
         self.bottom_drag = False
         self.right_drag = False
@@ -201,8 +200,7 @@ class MainWindow(QMainWindow, MainUI):
         boxes = session.query(BoxDB).all()
         for cur_box in boxes:
             if cur_box.next_repetition < datetime.date.today():
-                cur_box.next_repetition += datetime.timedelta(
-                    days=cur_box.repeat_time + 1)
+                cur_box.update_repetition()
                 session.commit()
 
     def check_notification(self):
@@ -211,9 +209,9 @@ class MainWindow(QMainWindow, MainUI):
         with open('settings.json') as f:
             time = datetime.datetime.now().time().strftime('%H:%M')
             settings = json.load(f)
-            print(settings['enabled'])
             for cur_box in boxes:
-                if cur_box.next_repetition == datetime.date.today() and settings['time'] == time and settings['enabled']:
+                if cur_box.next_repetition == datetime.date.today(
+                ) and settings['time'] == time and settings['enabled']:
                     self.flash()
                     break
 
@@ -221,15 +219,18 @@ class MainWindow(QMainWindow, MainUI):
         for i in reversed(range(self.home_page_layout.count())):
             self.home_page_layout.itemAt(i).widget().deleteLater()
 
-        cur_box = session.query(BoxDB).filter(
-            BoxDB.next_repetition == datetime.date.today()).first()
-        if cur_box is not None:
-            cur_card = session.query(CardDB).filter(CardDB.id_of_box == cur_box.id).first()
+        cur_box_list = session.query(BoxDB).filter(
+            BoxDB.next_repetition == datetime.date.today()).all()
+        flag = False
+        for cur_box in cur_box_list:
+            cur_card = session.query(CardDB).filter(
+                CardDB.id_of_box == cur_box.id).first()
             if cur_card:
                 card_on_main_page = CardOnMainPage(cur_card, self)
-            else:
-                card_on_main_page = NoneOnMainPage()
-        else:
+                flag = True
+                break
+
+        if not flag:
             card_on_main_page = NoneOnMainPage()
         self.home_page_layout.addWidget(card_on_main_page)
 
@@ -267,7 +268,6 @@ class MainWindow(QMainWindow, MainUI):
         with open('settings.json', 'w') as w:
             json.dump(self.settings, w, ensure_ascii=False, indent=4)
         self.open_home_page()
-
 
     def flash(self):
         self.notification = NotificationWidget()
