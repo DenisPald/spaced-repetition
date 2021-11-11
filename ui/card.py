@@ -6,7 +6,7 @@ from .card_style import CardUI
 from app import session, Card as CardDB
 
 
-class Card(QWidget, CardUI):
+class CardWidget(QWidget, CardUI):
     def __init__(self, card: CardDB, parent):
         super().__init__()
         self.setupUi(self)

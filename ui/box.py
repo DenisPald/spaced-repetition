@@ -5,7 +5,7 @@ from .box_page import BoxPage
 from app import session, Card
 from .box_style import BoxUI
 
-class Box(QWidget, BoxUI):
+class BoxWidget(QWidget, BoxUI):
     def __init__(self, name: str, box_page: BoxPage, stacked_widget):
         super().__init__()
         self.setupUi(self)

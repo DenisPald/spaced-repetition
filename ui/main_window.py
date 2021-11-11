@@ -8,9 +8,8 @@ from PyQt5.QtCore import QEasingCurve, QPoint, QPropertyAnimation, Qt, QTimer
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QAction, QMainWindow, QMenu, QSystemTrayIcon
 
-from .box import Box
+from .box import BoxWidget
 from .box_page import BoxPage
-from .card import Card
 from .card_on_main_page import CardOnMainPage, NoneOnMainPage
 from .main_style import MainUI
 from .new_card import NewCard
@@ -192,7 +191,7 @@ class MainWindow(QMainWindow, MainUI):
             box_page = BoxPage(cards, self)
             self.stacked_widget.addWidget(box_page)
 
-            box = Box(cur_box.name, box_page, self.stacked_widget)
+            box = BoxWidget(cur_box.name, box_page, self.stacked_widget)
             self.edit_layout.addWidget(box)
 
     def update_db(self):
