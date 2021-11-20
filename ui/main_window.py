@@ -184,7 +184,7 @@ class MainWindow(QMainWindow, MainUI):
         for i in reversed(range(self.edit_layout.count())):
             self.edit_layout.itemAt(i).widget().deleteLater()
 
-        boxes = session.query(BoxDB).all()
+        boxes = session.query(BoxDB).order_by(BoxDB.repeat_time).all()
         for cur_box in boxes:
             cards = session.query(CardDB).filter(
                 CardDB.id_of_box == cur_box.id).all()
