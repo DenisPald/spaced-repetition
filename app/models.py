@@ -39,7 +39,7 @@ class Box(Base):
 
     def update_repetition(self):
         if self.repeat_time != 0:
-            self.next_repetition += self.repeat_time
+            self.next_repetition += datetime.timedelta(days=self.repeat_time)
         else:
             self.next_repetition += datetime.timedelta(days=1)
 
